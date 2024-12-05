@@ -64,6 +64,6 @@ jobs:
       # Publicar no npm
       - name: Publish to npm
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: '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'
         run: npm publish --access=public
  
