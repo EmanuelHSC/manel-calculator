@@ -6,9 +6,6 @@ on:
       - main
     tags:
       - 'v*'
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build-and-test:
@@ -17,7 +14,7 @@ jobs:
 
     steps:
       # Checkout do repositório
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       # Configuração do Node.js
@@ -43,10 +40,10 @@ jobs:
     name: Publish to npm
     runs-on: ubuntu-latest
     needs: build-and-test
-
+    if: github.event_name == 'push'
     steps:
       # Checkout do repositório
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       # Configuração do Node.js
@@ -54,15 +51,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'
 
       # Instalar dependências
       - name: Install dependencies
         run: npm install
 
-      # Publicar no npm
+      # Atualizar publicação no npm
       - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access=public
- 
+        run: npm publish --access public
