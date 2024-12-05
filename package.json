@@ -1,0 +1,40 @@
+{
+  "name": "manel-calculator",
+  "version": "1.0.0",
+  "description": "A simple calculator library implemented in TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "calculator",
+    "typescript",
+    "library",
+    "math"
+  ],
+  "author": "Emanuel Hoffmann <emanuelhoffmann0@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EmanuelHSC/manel-calculator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EmanuelHSC/manel-calculator/issues"
+  },
+  "homepage": "https://github.com/EmanuelHSC/manel-calculator#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
